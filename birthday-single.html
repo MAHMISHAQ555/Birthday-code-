@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎉 Happy Birthday Wishes! 🎂</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, sans-serif; 
+            overflow-x: hidden; 
+            transition: all 0.5s ease;
+        }
+        
+        /* Page 1: Welcome Screen */
+        .welcome-page {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #f9ca24);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease infinite;
+            text-align: center;
+        }
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        .welcome-container {
+            background: rgba(255,255,255,0.95);
+            padding: 50px;
+            border-radius: 30px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            backdrop-filter: blur(15px);
+            max-width: 550px;
+            width: 90%;
+        }
+        .welcome-title { 
+            color: #e74c3c; 
+            font-size: 3em; 
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        .welcome-btn {
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            color: white;
+            padding: 25px 50px;
+            font-size: 1.8em;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 15px 35px rgba(255,107,107,0.4);
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+            margin: 20px 0;
+        }
+        .welcome-btn:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 45px rgba(255,107,107,0.6);
+        }
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 15px 35px rgba(255,107,107,0.4); }
+            50% { box-shadow: 0 15px 35px rgba(255,107,107,0.7); }
+        }
+        
+        /* Page 2: Birthday Celebration */
+        .birthday-page {
+            display: none;
+            background: linear-gradient(to top, #ffecd2 0%, #fcb69f 100%);
+            min-height: 100vh;
+            position: relative;
+        }
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(255,255,255,0.9);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        /* Balloons */
+        .balloon-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            pointer-events: none;
+            height: 100vh;
+            z-index: 1;
+        }
+        .balloon {
+            position: absolute;
+            bottom: -150px;
+            width: 60px;
+            height: 80px;
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            animation: floatUp linear infinite;
+            opacity: 0.9;
+            filter: drop-shadow(0 0 3px rgba(0,0,0,0.3));
+        }
+        .balloon::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 30px;
+            background: #333;
+        }
+        @keyframes floatUp {
+            0% { bottom: -150px; transform: translateX(0) rotate(0deg); opacity: 0.8; }
+            100% { bottom: 120vh; transform: translateX(30px) rotate(10deg); opacity: 0; }
+        }
+        
+        /* Content */
+        .birthday-content {
+            position: relative;
+            z-index: 10;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 80px 20px 20px;
+            text-align: center;
+        }
+        .birthday-title {
+            font-size: 4em;
+            color: #d946ef;
+            text-shadow: 2px 2px 6px #b06ab3;
+            margin-bottom: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .birthday-title:hover { transform: scale(1.05); }
+        
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        .card img {
+            width: 100%;
+            border-radius: 15px;
+            margin-bottom: 15px;
+        }
+        .card-text {
+            font-weight: 600;
+            color: #5a206e;
+            font-size: 1.2em;
+        }
+        
+        .birthday-video {
+            max-width: 80%;
+            border-radius: 20px;
+            margin: 40px 0;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        .music-btn {
+            background: linear-gradient(45deg, #8b5cf6, #7c3aed);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-size: 1.3em;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 30px auto;
+            display: block;
+            box-shadow: 0 10px 25px rgba(139,92,246,0.4);
+            transition: all 0.3s ease;
+        }
+        .music-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(139,92,246,0.6);
+        }
+        
+        /* Confetti */
+        .confetti-container {
+            pointer-events: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 50;
+        }
+        .confetti {
+            position: absolute;
+            width: 12px; height: 12px;
+            background: #f87171;
+            animation: confettiFall linear forwards;
+            border-radius: 4px;
+        }
+        @keyframes confettiFall {
+            0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+        }
+        
+        @media (max-width: 768px) {
+            .welcome-title { font-size: 2.2em; }
+            .birthday-title { font-size: 2.5em; }
+            .cards-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Page 1: Welcome -->
+    <div class="welcome-page" id="welcomePage">
+        <div class="welcome-container">
+            <h1 class="welcome-title">🎉 Happy Birthday! 🎂</h1>
+            <p style="font-size: 1.4em; color: #555; margin: 25px 0;">
+                Click below to enter the magical birthday celebration! ✨
+            </p>
+            <button class="welcome-btn" onclick="openBirthdayPage()">
+                🚀 ENTER BIRTHDAY WISHES 🚀
+            </button>
+            <p style="font-size: 1em; color: #888; margin-top: 20px;">
+                Works on all devices • Fullscreen animations
+            </p>
+        </div>
+    </div>
+
+    <!-- Page 2: Birthday Celebration -->
+    <div class="birthday-page" id="birthdayPage">
+        <button class="back-btn" onclick="goBack()">← Back</button>
+        
+        <div class="balloon-container" id="balloonContainer"></div>
+        
+        <div class="birthday-content">
+            <h1 class="birthday-title" onclick="createConfetti()">🎉 Happy Birthday! 🎂</h1>
+            
+            <div class="cards-grid">
+                <div class="card" onclick="cardClick(this)">
+                    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=400&q=80" alt="Cake">
+                    <div class="card-text">Wishing you endless joy and cake! 🎂✨</div>
+                </div>
+                <div class="card" onclick="cardClick(this)">
+                    <img src="https://images.unsplash.com/photo-1461319807115-12a4d47b95c3?auto=format&fit=crop&w=400&q=80" alt="Balloons">
+                    <div class="card-text">May your year shine bright! 🎈🌟</div>
+                </div>
+                <div class="card" onclick="cardClick(this)">
+                    <img src="https://images.unsplash.com/photo-1534515725936-68316a5b48e3?auto=format&fit=crop&w=400&q=80" alt="Gifts">
+                    <div class="card-text">Surprises await you! 🎁💖</div>
+                </div>
+            </div>
+            
+            <video class="birthday-video" controls loop muted>
+                <source src="https://cdn.videvo.net/videvo_files/video/free/2019-06/small_watermarked/190523_02_D_004_preview.webm" type="video/webm">
+            </video>
+            
+            <button class="music-btn" id="musicBtn">🎵 Play Birthday Song</button>
+        </div>
+        
+        <div class="confetti-container" id="confettiContainer"></div>
+    </div>
+
+    <script>
+        // Page navigation
+        function openBirthdayPage() {
+            document.getElementById('welcomePage').style.display = 'none';
+            document.getElementById('birthdayPage').style.display = 'block';
+            createBalloons();
+            startMusicCheck();
+        }
+        function goBack() {
+            document.getElementById('birthdayPage').style.display = 'none';
+            document.getElementById('welcomePage').style.display = 'flex';
+            stopAllAnimations();
+        }
+        
+        // Balloons
+        function createBalloons() {
+            const container = document.getElementById('balloonContainer');
+            const colors = ['#f43f5e', '#60a5fa', '#34d399', '#fbbf24', '#ec4899'];
+            for(let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    const balloon = document.createElement('div');
+                    balloon.className = 'balloon';
+                    balloon.style.left = Math.random() * 90 + '%';
+                    balloon.style.background = `radial-gradient(circle at 30% 35%, ${colors[Math.floor(Math.random()*colors.length)]}, #900)`;
+                    balloon.style.animationDuration = (12 + Math.random() * 8) + 's';
+                    container.appendChild(balloon);
+                    setTimeout(() => balloon.remove(), 25000);
+                }, i * 500);
+            }
+        }
+        
+        // Music
+        const audio = new Audio('https://cdn.pixabay.com/download/audio/2022/03/17/audio_00b6d42027.mp3?filename=happy-birthday-song-120.mp3');
+        audio.loop = true;
+        function startMusicCheck() {
+            const btn = document.getElementById('musicBtn');
+            btn.onclick = () => {
+                if(audio.paused) {
+                    audio.play().catch(() => alert('Click allowed to play music!'));
+                    btn.textContent = '🔇 Pause Music';
+                } else {
+                    audio.pause();
+                    btn.textContent = '🎵 Play Birthday Song';
+                }
+            };
+        }
+        
+        // Confetti
+        function createConfetti() {
+            const container = document.getElementById('confettiContainer');
+            const colors = ['#f87171','#fbbf24','#34d399','#60a5fa','#f472b6','#a78bfa','#fb923c'];
+            for(let i = 0; i < 150; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.background = colors[Math.floor(Math.random()*colors.length)];
+                confetti.style.animationDuration = (3 + Math.random() * 3) + 's';
+                confetti.style.width = (8 + Math.random() * 8) + 'px';
+                confetti.style.height = (8 + Math.random() * 8) + 'px';
+                container.appendChild(confetti);
+                setTimeout(() => confetti.remove(), 6000);
+            }
+        }
+        
+        // Card interactions
+        function cardClick(card) {
+            card.style.transform = 'scale(1.1) rotate(3deg)';
+            createConfetti();
+            setTimeout(() => card.style.transform = '', 400);
+        }
+        
+        function stopAllAnimations() {
+            document.getElementById('confettiContainer').innerHTML = '';
+            document.getElementById('balloonContainer').innerHTML = '';
+            audio.pause();
+        }
+    </script>
+</body>
+</html>

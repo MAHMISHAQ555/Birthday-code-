@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Wishes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: linear-gradient(to top, #ffecd2 0%, #fcb69f 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+        }
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+            color: #d946ef;
+            text-shadow: 1px 1px 4px #b06ab3;
+            font-size: 3em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        h1:hover {
+            transform: scale(1.05);
+            color: #c026d3;
+        }
+        .balloon-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            pointer-events: none;
+            overflow: visible;
+            height: 100vh;
+            z-index: 1;
+        }
+        .balloon {
+            position: absolute;
+            bottom: -150px;
+            width: 60px;
+            height: 80px;
+            background: radial-gradient(circle at 30% 35%, #f43f5e, #be123c);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            animation-timing-function: linear;
+            opacity: 0.9;
+            filter: drop-shadow(0 0 2px #900);
+        }
+        .balloon::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 30px;
+            background: #7a0639;
+        }
+        @keyframes floatUp {
+            0% {
+                bottom: -150px;
+                transform: translateX(0);
+                opacity: 0.8;
+            }
+            100% {
+                bottom: 110vh;
+                transform: translateX(20px);
+                opacity: 0;
+            }
+        }
+        .content {
+            position: relative;
+            z-index: 10;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+        .card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+            width: 280px;
+            padding: 15px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        .card:hover {
+            transform: scale(1.05) rotate(2deg);
+        }
+        .card img {
+            width: 100%;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+        .card:hover img {
+            transform: scale(1.02);
+        }
+        .card p {
+            font-weight: 600;
+            margin-top: 10px;
+            color: #5a206e;
+            font-size: 1.1em;
+        }
+        video {
+            max-width: 80%;
+            border-radius: 15px;
+            margin: 30px 0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+        }
+        .music-btn {
+            background: #8b5cf6;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 1.1em;
+            cursor: pointer;
+            margin: 30px auto;
+            display: block;
+            box-shadow: 0 5px 12px #6d4bd9;
+            transition: all 0.3s ease;
+        }
+        .music-btn:hover {
+            background: #7c3aed;
+            transform: translateY(-2px);
+        }
+        .confetti-container {
+            pointer-events: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 20;
+            overflow: visible;
+        }
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 12px;
+            opacity: 0.9;
+            background-color: red;
+            animation-timing-function: linear;
+            transform-origin: center;
+            filter: drop-shadow(0 0 1px #b94a4a);
+            border-radius: 3px;
+        }
+        @media (max-width: 768px) {
+            .cards { flex-direction: column; align-items: center; }
+            .card { width: 90%; max-width: 350px; }
+            h1 { font-size: 2.2em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="balloon-container">
+        <div class="balloon" style="left:10%; animation-duration: 14s; animation-name: floatUp;"></div>
+        <div class="balloon" style="left:30%; animation-duration: 12s; animation-name: floatUp;"></div>
+        <div class="balloon" style="left:55%; animation-duration: 13s; animation-name: floatUp;"></div>
+        <div class="balloon" style="left:80%; animation-duration: 15s; animation-name: floatUp;"></div>
+    </div>
+
+    <div class="content">
+        <h1>🎉 Happy Birthday! 🎂</h1>
+
+        <div class="cards">
+            <div class="card" tabindex="0">
+                <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=400&q=80" alt="Birthday cake" />
+                <p>Wishing you a day filled with love and cake! 🎂✨</p>
+            </div>
+            <div class="card" tabindex="0">
+                <img src="https://images.unsplash.com/photo-1461319807115-12a4d47b95c3?auto=format&fit=crop&w=400&q=80" alt="Balloons" />
+                <p>May your year be as bright as these balloons! 🎈🌈</p>
+            </div>
+            <div class="card" tabindex="0">
+                <img src="https://images.unsplash.com/photo-1534515725936-68316a5b48e3?auto=format&fit=crop&w=400&q=80" alt="Gift box" />
+                <p>Surprises and joy coming your way! 🎁💖</p>
+            </div>
+        </div>
+
+        <video controls loop muted width="600">
+            <source src="https://cdn.videvo.net/videvo_files/video/free/2019-06/small_watermarked/190523_02_D_004_preview.webm" type="video/webm">
+            Your browser does not support the video tag.
+        </video>
+
+        <button class="music-btn" aria-pressed="false">🎵 Play Birthday Music</button>
+    </div>
+
+    <div class="confetti-container"></div>
+
+    <script>
+        // Randomize balloon positions and durations
+        document.querySelectorAll('.balloon').forEach((balloon, index) => {
+            balloon.style.left = (10 + (index * 20) + Math.random() * 20) + '%';
+            balloon.style.animationDuration = (12 + Math.random() * 8) + 's';
+            balloon.style.animationDelay = Math.random() * 2 + 's';
+        });
+
+        // Continuous balloon generation
+        function createBalloon() {
+            const balloon = document.createElement('div');
+            balloon.className = 'balloon';
+            balloon.style.left = Math.random() * 90 + '%';
+            balloon.style.animationDuration = (12 + Math.random() * 8) + 's';
+            balloon.style.background = `radial-gradient(circle at 30% 35%, hsl(${Math.random()*360}, 70%, 60%), hsl(${Math.random()*360}, 50%, 40%))`;
+            document.querySelector('.balloon-container').appendChild(balloon);
+            
+            setTimeout(() => balloon.remove(), 20000);
+        }
+        setInterval(createBalloon, 3000);
+
+        // Music toggle
+        const musicBtn = document.querySelector('.music-btn');
+        const audio = new Audio('https://cdn.pixabay.com/download/audio/2022/03/17/audio_00b6d42027.mp3?filename=happy-birthday-song-120.mp3');
+        audio.loop = true;
+
+        musicBtn.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play().catch(e => console.log('Audio play failed'));
+                musicBtn.textContent = '🔇 Pause Birthday Music';
+                musicBtn.setAttribute('aria-pressed', 'true');
+            } else {
+                audio.pause();
+                musicBtn.textContent = '🎵 Play Birthday Music';
+                musicBtn.setAttribute('aria-pressed', 'false');
+            }
+        });
+
+        // Confetti function
+        const confettiContainer = document.querySelector('.confetti-container');
+        function createConfetti() {
+            const confettiCount = 100;
+            const colors = ['#f87171','#fbbf24','#34d399','#60a5fa','#f472b6','#a78bfa','#fb923c','#ec4899'];
+            for (let i = 0; i < confettiCount; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.top = Math.random() * -20 + 'vh';
+                confetti.style.width = (5 + Math.random() * 7) + 'px';
+                confetti.style.height = (7 + Math.random() * 10) + 'px';
+                confetti.style.opacity = Math.random() + 0.6;
+                confetti.style.animationDuration = (3 + Math.random() * 3) + 's';
+                confetti.style.animationDelay = Math.random() * 0.5 + 's';
+                confetti.style.transform = `rotate(${Math.floor(Math.random() * 360)}deg)`;
+                confettiContainer.appendChild(confetti);
+
+                confetti.addEventListener('animationend', () => confetti.remove());
+            }
+        }
+
+        // Confetti keyframes
+        const styleEl = document.createElement('style');
+        styleEl.textContent = `
+            @keyframes confettiDrop {
+                0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+                100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(styleEl);
+
+        // Trigger confetti on h1 click
+        document.querySelector('h1').addEventListener('click', createConfetti);
+
+        // Card click animations
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('click', () => {
+                card.style.transform = 'scale(1.1) rotate(5deg)';
+                setTimeout(() => {
+                    card.style.transform = 'scale(1)';
+                }, 300);
+                createConfetti();
+            });
+        });
+    </script>
+</body>
+</html>
